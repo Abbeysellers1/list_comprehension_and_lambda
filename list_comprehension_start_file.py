@@ -50,7 +50,7 @@ print(newlist)
 
 sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
-length=[ x.len() for x in words if x /= 'the']
+length=[ x.count() for x in words if x /= 'the']
 
 ## Given dictionary is consisted of vehicles and their weights in kilograms. 
 ## Contruct a list of the names of vehicles with weight below 5000 kilograms. 
