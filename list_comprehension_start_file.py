@@ -39,7 +39,7 @@ for i in original_list:
 
 numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 
-newlist = [ x for x in numbers if x>0]
+newlist = [ int(x) for x in numbers if x>0]
 print(newlist)
 
 
@@ -49,8 +49,8 @@ print(newlist)
 ## a sentence except for the word 'the'
 
 sentence = "the quick brown fox jumps over the lazy dog"
-words = sentence.split()
-length=[ x.count() for x in words if x /= 'the']
+word_lenths=[len(word) for word in sentence.split(' ') if word != 'the']
+print(word_lenths)
 
 ## Given dictionary is consisted of vehicles and their weights in kilograms. 
 ## Contruct a list of the names of vehicles with weight below 5000 kilograms. 
@@ -59,21 +59,19 @@ length=[ x.count() for x in words if x /= 'the']
 dict={"Sedan": 1500, "SUV": 2000, "Pickup": 2500, "Minivan": 1600, "Van": 2400, 
 "Semi": 13600, "Bicycle": 7, "Motorcycle": 110}
 
-weight=[ x.upper() for x in dict if x<5000]
-
-
-
-
+weight=[ i.upper() for i in dict if dict[i]<5000]
+print(weight)
 
 
 ## Find all the numbers from 1 to 1000 that have a 4 in them
 
-numbers=[y for y in range(1,1000) if '4' in y]
+numbers=[x for x in range(1000) if '4' in str(x)]
 print(numbers)
 
 ## count how many times the word 'the' appears in the text file - 'sometext.txt'
 myfile = open('sometext.txt', 'r')
-thelist=[i for i in myfile ]
+infile=myfile.read()
+thelist= len([x for x in infile.split(' ') if x in ['the', 'The']])
 
 
 
@@ -81,7 +79,8 @@ thelist=[i for i in myfile ]
 
 phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each event, with about 3 or 4 that were classifled as serious per event.'
 
-extract=[x for x in phrase if x.isalpha()]
+extract=[x for x in phrase.split(' ') if x.isdigit()]
+print(extract)
 
 
 
